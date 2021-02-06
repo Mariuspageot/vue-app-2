@@ -7,7 +7,7 @@
     <table v-if="info">
       <td>
         <tr v-for="item in info.data.results">
-          {{ item.title }}
+          <img :src="urlImg(item)">{{ item.title }}
         </tr>
       </td>
     </table>
@@ -26,7 +26,7 @@ export default {
     }
   },
   mounted() {
-    this.search =""
+    this.search = ""
   },
   methods: {
     searchf() {
@@ -35,6 +35,9 @@ export default {
           .then(response => (this.info = response))
           .then(() => (console.log(this.info)))
           .then(() => (console.log(this.search)))
+    },
+    urlImg(item) {
+      return `https://image.tmdb.org/t/p/w92/${item.poster_path}`
     }
   }
 }
