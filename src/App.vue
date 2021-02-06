@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Accueil</router-link> |
-      <router-link to="/recherche">Recherche</router-link> |
-      <router-link to="/newmovies">News</router-link>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/search">Search</router-link> |
+      <router-link to="/comingsoon">Coming soon</router-link>
     </div>
     <router-view/>
   </div>

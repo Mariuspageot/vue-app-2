@@ -1,17 +1,18 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Your Search movies App"/>
+    <H1>Welcome</H1>
+    <Popular/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Popular from "@/components/Popular";
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    Popular
   }
 }
 </script>

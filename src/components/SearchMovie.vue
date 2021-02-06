@@ -1,6 +1,16 @@
 <template>
   <div>
-    <p v-if="infoMovies">{{ infoMovies.data.results[0].title }}</p>
+    <form>
+      <input v-model="search" value="" v-on:keypress.enter="searchf" type="text">
+
+    </form>
+    <table v-if="info">
+      <td>
+        <tr v-for="item in info.data.results">
+          {{ item.title }}
+        </tr>
+      </td>
+    </table>
   </div>
 </template>
 
@@ -10,13 +20,22 @@ export default {
   name: "SearchMovie",
   props: {},
   data: function () {
-    return {infoMovies: {}}
+    return {
+      info: {data: {results: {}}},
+      search: String
+    }
   },
   mounted() {
-    axios
-        .get('https://api.themoviedb.org/3/search/movie?api_key=4d8b1374d7f8f0878d960e993a97be58&language=fr-FR&query=Asphalt Burning&include_adult=false ')
-        .then(response => (this.infoMovies = response))
-        .then(() => (console.log(this.infoMovies)))
+    this.search =""
+  },
+  methods: {
+    searchf() {
+      axios
+          .get('https://api.themoviedb.org/3/search/movie?api_key=4d8b1374d7f8f0878d960e993a97be58&language=fr-FR&query=' + this.search + '&include_adult=false ')
+          .then(response => (this.info = response))
+          .then(() => (console.log(this.info)))
+          .then(() => (console.log(this.search)))
+    }
   }
 }
 </script>
