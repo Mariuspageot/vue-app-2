@@ -1,4 +1,5 @@
 <template>
+  <h1>Enter movie name</h1>
   <div id="search">
     <form>
       <input v-model="search" value="" v-on:keypress.enter="searchf" type="text">
