@@ -5,7 +5,7 @@
 
     </form>
 
-      <div v-if="info.data.results.length>0" :arrows="true" :dots="true">
+      <div v-if="info.data.results.length>0">
         <div v-for="item in info.data.results" :key="item.title">
           <img alt="poster" :src="urlImg(item)">
           {{ item.title }}
