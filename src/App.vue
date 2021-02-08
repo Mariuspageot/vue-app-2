@@ -10,6 +10,24 @@
 </template>
 
 <style>
+.box{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card{
+  margin: 10px;
+  width: 18%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.title{
+  text-align: center;
+  width: 60%;
+  margin: auto;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

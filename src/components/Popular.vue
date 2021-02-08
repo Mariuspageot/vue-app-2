@@ -1,10 +1,13 @@
 <template>
   <div>
-    <h1>Most Popular</h1>
-    <div v-if="info.data.results.length>0">
-      <div v-for="item in info.data.results">
-        <img alt="poster" :src="urlImg(item)">
-        {{ item.title }}
+    <h1>Popular</h1>
+    <div v-if="info.data.results.length>0" class="box">
+      <div v-for="item in info.data.results" class="card">
+        <img v-if="item.poster_path" alt="poster" :src="urlImg(item)">
+        <img v-else alt="poster" src="../assets/default.png">
+        <h3 class="title">
+          {{ item.title }}
+        </h3>
       </div>
     </div>
   </div>
@@ -25,12 +28,12 @@ export default {
   },
   methods: {
     urlImg(item) {
-      return `https://image.tmdb.org/t/p/w92/${item.poster_path}`
+      return `https://image.tmdb.org/t/p/w185/${item.poster_path}`
     }
   }
 }
 </script>
 
-<style scoped>
+<style>
 
 </style>
