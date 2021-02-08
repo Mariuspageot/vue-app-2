@@ -1,28 +1,32 @@
 <template>
-  <div>
+  <div id="search">
     <form>
       <input v-model="search" value="" v-on:keypress.enter="searchf" type="text">
 
     </form>
-    <table v-if="info">
-      <td>
-        <tr v-for="item in info.data.results">
-          <img :src="urlImg(item)">{{ item.title }}
-        </tr>
-      </td>
-    </table>
+
+      <div v-if="info.data.results.length>0" :arrows="true" :dots="true">
+        <div v-for="item in info.data.results" :key="item.title">
+          <img alt="poster" :src="urlImg(item)">
+          {{ item.title }}
+        </div>
+      </div>
+
   </div>
 </template>
 
 <script>
+
+
 const axios = require('axios').default;
 export default {
   name: "SearchMovie",
   props: {},
+
   data: function () {
     return {
       info: {data: {results: {}}},
-      search: String
+      search: String,
     }
   },
   mounted() {
@@ -43,6 +47,5 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style>
 </style>
